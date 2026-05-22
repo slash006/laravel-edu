@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel_app
+    restart: unless-stopped
+    working_dir: /var/www
+    environment:
+      - SERVER_HOST=0.0.0.0
+    ports:
+      - "8028:8000"
+      - "5173:5173"
+    volumes:
+      - ./:/var/www
