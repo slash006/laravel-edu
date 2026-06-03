@@ -1,4 +1,3 @@
 <x-layout>
-    <h1>Hi there</h1>
-
+    hi from about page
 </x-layout>
