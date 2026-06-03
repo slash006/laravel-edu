@@ -1,8 +1,4 @@
-<html>
-<body>
+<x-layout>
+    <h1>Hi there</h1>
 
-<a href="/about">about</a>
-<a href="/contact">contact us</a>
-
-</body>
-</html>
+</x-layout>

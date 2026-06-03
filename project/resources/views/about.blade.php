@@ -1,2 +1,3 @@
-<?php
-echo "hi from about page";
+<x-layout>
+    hi from about page
+</x-layout>

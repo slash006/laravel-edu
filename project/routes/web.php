@@ -15,6 +15,13 @@ Route::get('/about', function () {
     return view('contact');
 });*/
 
-Route::view('contact', 'contact');
+Route::view('contact', 'contact', [
+    'title' => request('title'),
+    'tasks' => [
+        'sample',
+        'task',
+        'here'
+    ]
+]);
 
 

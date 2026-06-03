@@ -1,9 +1,12 @@
-<html>
-<body>
+<x-layout title="Contact title">
+    <h3>Contact form here...</h3>
 
-<a href="/">return to the homepage</a>
+    @dump($tasks)
 
-Hello from contact page
+    <h3>{{$title ?? ""}}</h3>
 
-</body>
-</html>
+    <x-card class="max-w-400">
+        card content here...
+    </x-card>
+
+</x-layout>
