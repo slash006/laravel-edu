@@ -10,6 +10,9 @@ use Illuminate\Database\Eloquent\Model;
 class Idea extends Model
 {
     //
-
+    protected $fillable = [
+        'description',
+        'state',
+    ];
     protected $guarded = [];
 }

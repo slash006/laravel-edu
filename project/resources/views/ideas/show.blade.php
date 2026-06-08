@@ -6,7 +6,26 @@
 
     <div>
 
-        {{ $idea->description }}
+        {{ $idea->description  }}
+
+
+
+        <div>
+
+            <a href="/ideas/{{$idea->id}}/edit">Edit</a>
+        </div>
+
+
+
+{{--        @if($idea?->description)
+
+            {{ $idea->description }}
+
+        @else
+            No valid idea found
+
+        @endif--}}
+
     </div>
 
 </x-layout>
