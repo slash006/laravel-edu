@@ -5,21 +5,34 @@ use Illuminate\Support\Facades\Route;
 
 use App\Models\Idea;
 
-Route::get('/', function () {
+
+// index
+Route::get('/ideas', function () {
 
 //    $ideas = session()->get('ideas', []);
 //    $ideas = DB::table('ideas')->get();
-//    $ideas = Idea::all();
+    $ideas = Idea::all();
 
 
     // TODO: check Idea::query
-    $condition = request()->query('state', 'pending');
-    $ideas = Idea::where('state', $condition)->get();
+//    $condition = request()->query('state', 'pending');
+//    $ideas = Idea::where('state', $condition)->get();
 //    dd($ideas);
 
-    return view('ideas', [
+    return view('ideas.index', [ // ideas/index
         'ideas' => $ideas
     ]);
+});
+
+// show
+Route::get('/ideas/{id}', function ($id) {
+
+
+    $idea = Idea::find($id);
+    return view('ideas.show', [
+        'idea' => $idea
+    ]);
+
 });
 
 Route::post('/ideas', function () {
@@ -49,7 +62,10 @@ Route::post('/ideas', function () {
 
 Route::get('/delete-ideas', function () {
 
-    session()->forget('ideas'); // forget or delete?
+//    session()->forget('ideas'); // forget or delete?
+
+    Idea::truncate();
+
     return redirect('/');
 });
 

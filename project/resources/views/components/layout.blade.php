@@ -14,6 +14,17 @@
 
     <style>
 
+        h1 {
+
+            font-weight: bold;
+            font-size: 3rem;
+        }
+
+        a {
+
+            text-decoration: underline;
+        }
+
         .max-w-400 {
 
             max-width: 400px !important;

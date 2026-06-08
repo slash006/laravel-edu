@@ -133,6 +133,8 @@
       <path value="$PROJECT_DIR$/project/vendor/league/commonmark" />
       <path value="$PROJECT_DIR$/project/vendor/symfony/routing" />
       <path value="$PROJECT_DIR$/project/vendor/league/uri" />
+      <path value="$PROJECT_DIR$/project/vendor/barryvdh/reflection-docblock" />
+      <path value="$PROJECT_DIR$/project/vendor/barryvdh/laravel-ide-helper" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.3" />
