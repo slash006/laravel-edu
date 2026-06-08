@@ -5,11 +5,23 @@ services:
       dockerfile: Dockerfile
     container_name: laravel_app
     restart: unless-stopped
-    working_dir: /var/www
+    working_dir: /var/www/project
     environment:
       - SERVER_HOST=0.0.0.0
+    command: php artisan serve --host=0.0.0.0 --port=8000
     ports:
       - "8028:8000"
+    volumes:
+      - ./:/var/www
+  vite:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel_vite
+    restart: unless-stopped
+    working_dir: /var/www/project
+    command: npm run dev
+    ports:
       - "5173:5173"
     volumes:
       - ./:/var/www
