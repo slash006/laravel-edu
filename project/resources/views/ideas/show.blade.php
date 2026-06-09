@@ -1,21 +1,12 @@
 <x-layout>
 
-{{--    @dump($idea)--}}
-
-    <h1>Idea details</h1>
-
-    <div>
-
-        {{ $idea->description  }}
-
-
-
+    <div class="card bg-neutral p-6">
         <div>
-
-            <a href="/ideas/{{$idea->id}}/edit">Edit</a>
+            {{ $idea->description  }}
         </div>
-
-
+        <div class="mt-2">
+            <a class="btn btn-soft" href="/ideas/{{$idea->id}}/edit">Edit</a>
+        </div>
 
 {{--        @if($idea?->description)
 

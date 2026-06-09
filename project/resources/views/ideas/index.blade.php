@@ -2,9 +2,16 @@
 
     @if(count($ideas))
         <h3 class="font-bold">Stored ideas</h3>
-        <ul class="mt-6">
+        <ul class="mt-6 grid grid-cols-2 gap-x-6 gap-y-4">
             @foreach($ideas as $idea)
-                <li class="text-sm">{{$idea->description}} <a href="/ideas/{{$idea->id}}">Details</a></li>
+
+                <x-idea-card href="/ideas/{{$idea->id}}">
+                    {{$idea->description}}
+                </x-idea-card>
+
+
+
+{{--                <li class="text-sm">{{$idea->description}} <a href="/ideas/{{$idea->id}}">Details</a></li>--}}
 
             @endforeach
         </ul>
