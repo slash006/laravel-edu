@@ -1,4 +1,4 @@
-<div class="navbar shadow-sm">
+<div class="navbar bg-base-200">
     <div class="navbar-start">
         <div class="dropdown">
             <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -20,6 +20,6 @@
         </ul>
     </div>
     <div class="navbar-end">
-        <a class="btn">Button</a>
+        <a href="/register" class="btn btn-primary">Register</a>
     </div>
 </div>
