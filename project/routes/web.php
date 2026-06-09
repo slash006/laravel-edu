@@ -14,6 +14,9 @@ Route::get('/ideas/{idea}/edit', [IdeaController::class, 'edit']);
 Route::patch('/ideas/{idea}', [IdeaController::class, 'update']);
 Route::delete('/ideas/{idea}', [IdeaController::class, 'destroy']);
 
+Route::get('/register', [RegisteredUserController::class, 'create']);
+Route::post('/register', [RegisteredUserController::class, 'store']);
+
 // index
 //Route::get('/ideas', function () {
 //
@@ -22,7 +25,7 @@ Route::delete('/ideas/{idea}', [IdeaController::class, 'destroy']);
 //    $ideas = Idea::all();
 //
 //    // TODO: check Idea::query
-//    //    $condition = request()->query('state', 'pending');
+//    //    $condition = request()->query('state', 'pending');RegisteredUserController
 //    //    $ideas = Idea::where('state', $condition)->get();
 //    //    dd($ideas);
 //
