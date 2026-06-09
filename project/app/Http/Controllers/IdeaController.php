@@ -14,7 +14,12 @@ class IdeaController extends Controller
     public function index()
     {
 
-        $ideas = Idea::all();
+        //        $ideas = Idea::all()->where('user_id', \Auth::user()->id);
+
+        $ideas = Idea::query()->where(
+            ['user_id' => \Auth::id()]
+        )->get();
+
         return view('ideas.index', [ // ideas/index
             'ideas' => $ideas
         ]);
@@ -43,6 +48,7 @@ class IdeaController extends Controller
         Idea::create(
             [
                 'description' => $idea,
+                'user_id' => auth()->id(),
                 'state' => 'pending'
             ]
         );
@@ -77,7 +83,6 @@ class IdeaController extends Controller
         /*$idea->update([
             'description' => request('description')
         ]);*/
-
 
         $idea->update([
             'description' => $request->description,
