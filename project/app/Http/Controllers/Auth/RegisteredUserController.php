@@ -25,12 +25,15 @@ class RegisteredUserController extends Controller
             ]
         );
 
-        User::create([
+        $user = User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
             'password' => $validated['password']
         ]);
 
-        redirect('/ideas');
+
+        \Auth::login($user);
+
+        return redirect('/ideas');
     }
 }

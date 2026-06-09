@@ -1,11 +1,10 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\SessionsController;
 use App\Http\Controllers\IdeaController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Idea;
-
-
 
 Route::get('/ideas', [IdeaController::class, 'index']);
 Route::get('/ideas/create', [IdeaController::class, 'create']);
@@ -17,6 +16,17 @@ Route::delete('/ideas/{idea}', [IdeaController::class, 'destroy']);
 
 Route::get('/register', [RegisteredUserController::class, 'create']);
 Route::post('/register', [RegisteredUserController::class, 'store']);
+Route::delete('/logout', [SessionsController::class, 'destroy']);
+Route::get('/login', [SessionsController::class, 'create']);
+Route::post('/login', [SessionsController::class, 'store']);
+
+
+//Route::post('/logout', function () {
+//
+//    Auth::logout();
+//});
+//
+
 
 // index
 //Route::get('/ideas', function () {
@@ -34,7 +44,6 @@ Route::post('/register', [RegisteredUserController::class, 'store']);
 //        'ideas' => $ideas
 //    ]);
 //});
-
 
 // create
 //Route::get('/ideas/create', function () {
@@ -71,7 +80,6 @@ Route::post('/register', [RegisteredUserController::class, 'store']);
 //    return redirect('/ideas/' . $idea->id);
 //});
 
-
 // delete
 //Route::delete('/ideas/{idea}', function (Idea $idea) {
 //
@@ -79,7 +87,6 @@ Route::post('/register', [RegisteredUserController::class, 'store']);
 //    return redirect('/ideas');
 //
 //});
-
 
 // show
 //Route::get('/ideas/{id}', function ($id) {
