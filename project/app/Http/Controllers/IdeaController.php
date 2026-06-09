@@ -33,8 +33,13 @@ class IdeaController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'description' => 'required|min:3',
+        ]);
+        
         //
-        $idea = $request->idea;
+        $idea = $request->description;
         Idea::create(
             [
                 'description' => $idea,
