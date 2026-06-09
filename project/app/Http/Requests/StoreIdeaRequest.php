@@ -12,18 +12,26 @@ class StoreIdeaRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, ValidationRule|array<mixed>|string>
+     * @return array<string, ValidationRule|array|string>
      */
     public function rules(): array
     {
         return [
-            //
+            'description' => ['required', 'string', 'min:4']
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'description.required' => 'Description is required',
+            'description.min' => 'Description must be at least 4 characters!!! :attribute',
         ];
     }
 }
