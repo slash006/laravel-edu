@@ -18,7 +18,7 @@
 
 </head>
 
-<body>
+<body class="text-primary">
 
 <x-nav></x-nav>
     <main class="max-w-3xl mx-auto mt-6">
