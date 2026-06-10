@@ -17,7 +17,12 @@
         </ul>
 
     @else
-        <p>No ideas yet, <a href="/ideas/create">create a new one</a></p>
+        <p>No ideas yet</p>
     @endif
+
+    <p class="mt-6">
+        <a href="/ideas/create">Create a new one</a>
+
+    </p>
 
 </x-layout>

@@ -1,4 +1,4 @@
-<div class="navbar shadow-sm">
+<div class="navbar bg-base-200">
     <div class="navbar-start">
         <div class="dropdown">
             <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -9,6 +9,9 @@
                 class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                 <li><a href="/ideas">Home</a></li>
                 <li><a href="/ideas/create">New Idea</a></li>
+                @can('view-admin')
+                    <li><a href="/admin">Admin</a></li>
+                @endcan
             </ul>
         </div>
         <a class="btn btn-ghost text-xl">Idea</a>
@@ -17,9 +20,28 @@
         <ul class="menu menu-horizontal px-1">
             <li><a href="/ideas">Home</a></li>
             <li><a href="/ideas/create">New Idea</a></li>
+
+            @can('view-admin')
+                <li><a href="/admin">Admin</a></li>
+            @endcan
         </ul>
     </div>
-    <div class="navbar-end">
-        <a class="btn">Button</a>
+    <div class="navbar-end space-x-2">
+
+        @guest
+            <a href="/register" class="btn btn-primary">Register</a>
+            <a href="/login" class="btn btn-secondary">Log In</a>
+
+        @endguest
+
+        @auth
+            <form method="POST" action="/logout">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-ghost">Log Out</button>
+            </form>
+        @endauth
+
+
     </div>
 </div>

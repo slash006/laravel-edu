@@ -145,6 +145,7 @@
       <path value="$PROJECT_DIR$/project/vendor/league/uri" />
       <path value="$PROJECT_DIR$/project/vendor/barryvdh/reflection-docblock" />
       <path value="$PROJECT_DIR$/project/vendor/barryvdh/laravel-ide-helper" />
+      <path value="$PROJECT_DIR$/project/vendor/_laravel_idea" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.3" />
