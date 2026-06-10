@@ -9,20 +9,16 @@
 {{--    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>--}}
 
 
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
-
-
     <title>
         {{$title }} | Laravel demo
     </title>
 
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 
 </head>
 
-<body>
+<body class="text-primary">
 
 <x-nav></x-nav>
     <main class="max-w-3xl mx-auto mt-6">

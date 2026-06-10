@@ -18,10 +18,16 @@ export default defineConfig({
     ],
     server: {
         host: '0.0.0.0',
+        cors: true,
+        // port: 5173,
+        // strictPort: true,
         hmr: {
-            host: 'localhost'
+            host: '127.0.0.1',
         },
         watch: {
+            usePolling: true,
+            interval: 1000,
+            protocol: 'ws',
             ignored: ['**/storage/framework/views/**'],
         },
     },
