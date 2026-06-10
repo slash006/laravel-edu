@@ -16,9 +16,11 @@ class IdeaController extends Controller
 
         //        $ideas = Idea::all()->where('user_id', \Auth::user()->id);
 
-        $ideas = Idea::query()->where(
+     /*   $ideas = Idea::query()->where(
             ['user_id' => \Auth::id()]
-        )->get();
+        )->get();*/
+
+        $ideas = \Auth::user()->ideas;
 
         return view('ideas.index', [ // ideas/index
             'ideas' => $ideas
@@ -45,13 +47,20 @@ class IdeaController extends Controller
 
         //
         $idea = $request->description;
-        Idea::create(
+
+        \Auth::user()->ideas()->create([
+            'description' => $idea,
+            'state' => 'pending'
+        ]);
+
+
+      /*  Idea::create(
             [
                 'description' => $idea,
                 'user_id' => auth()->id(),
                 'state' => 'pending'
             ]
-        );
+        );*/
         return redirect('/ideas');
     }
 
