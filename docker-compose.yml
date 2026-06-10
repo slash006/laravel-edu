@@ -4,6 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: laravel_app
+    user: "${UID:-1000}:${GID:-1000}"
     restart: unless-stopped
     working_dir: /var/www/project
     environment:
@@ -13,11 +14,13 @@ services:
       - "8028:8000"
     volumes:
       - ./:/var/www
+
   vite:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: laravel_vite
+    user: "${UID:-1000}:${GID:-1000}"
     restart: unless-stopped
     working_dir: /var/www/project
     command: npm run dev
