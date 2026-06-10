@@ -31,7 +31,14 @@ Route::delete('/logout', [SessionsController::class, 'destroy'])->middleware('au
 Route::get('/login', [SessionsController::class, 'create'])->name('login');
 Route::post('/login', [SessionsController::class, 'store'])->middleware('guest');
 
+/*Route::get('/admin', function () {
+    return "Private admin area";
+})->can('view-admin');*/
+
 Route::get('/admin', function () {
+
+    Gate::authorize('view-admin');
+
     return "Private admin area";
 });
 
