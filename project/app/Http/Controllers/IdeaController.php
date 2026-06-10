@@ -16,9 +16,9 @@ class IdeaController extends Controller
 
         //        $ideas = Idea::all()->where('user_id', \Auth::user()->id);
 
-     /*   $ideas = Idea::query()->where(
-            ['user_id' => \Auth::id()]
-        )->get();*/
+        /*   $ideas = Idea::query()->where(
+               ['user_id' => \Auth::id()]
+           )->get();*/
 
         $ideas = \Auth::user()->ideas;
 
@@ -32,6 +32,7 @@ class IdeaController extends Controller
      */
     public function create()
     {
+
         return view('ideas.create');
     }
 
@@ -53,14 +54,13 @@ class IdeaController extends Controller
             'state' => 'pending'
         ]);
 
-
-      /*  Idea::create(
-            [
-                'description' => $idea,
-                'user_id' => auth()->id(),
-                'state' => 'pending'
-            ]
-        );*/
+        /*  Idea::create(
+              [
+                  'description' => $idea,
+                  'user_id' => auth()->id(),
+                  'state' => 'pending'
+              ]
+          );*/
         return redirect('/ideas');
     }
 
@@ -69,6 +69,12 @@ class IdeaController extends Controller
      */
     public function show(Idea $idea)
     {
+
+        \Gate::authorize('update', $idea);
+        /*if (\Auth::user()->cannot('update', $idea)) {
+            dd('cannot show idea');
+        }*/
+
         return view('ideas.show', [
             'idea' => $idea
         ]);
@@ -89,6 +95,9 @@ class IdeaController extends Controller
      */
     public function update(IdeaRequest $request, Idea $idea)
     {
+
+        \Gate::authorize('update', $idea);
+
         /*$idea->update([
             'description' => request('description')
         ]);*/
@@ -105,6 +114,8 @@ class IdeaController extends Controller
      */
     public function destroy(Idea $idea)
     {
+        \Gate::authorize('update', $idea);
+
 
         $idea->delete();
         return redirect('/ideas');

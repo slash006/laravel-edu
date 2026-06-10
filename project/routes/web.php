@@ -35,12 +35,12 @@ Route::post('/login', [SessionsController::class, 'store'])->middleware('guest')
     return "Private admin area";
 })->can('view-admin');*/
 
-Route::get('/admin', function () {
+/*Route::get('/admin', function () {
 
     Gate::authorize('view-admin');
 
     return "Private admin area";
-});
+});*/
 
 
 //Route::post('/logout', function () {
