@@ -140,6 +140,27 @@
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/phpstan/phpdoc-parser" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/ta-tikoma/phpunit-architecture-test" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/amphp/amp" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/amphp/byte-stream" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/amphp/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/amphp/dns" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/amphp/hpack" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/amphp/http" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/amphp/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/amphp/http-server" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/amphp/parser" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/amphp/pipeline" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/amphp/process" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/amphp/serialization" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/amphp/socket" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/amphp/sync" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/amphp/websocket" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/amphp/websocket-client" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/daverandom/libdns" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/kelunik/certificate" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/league/uri-components" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/pestphp/pest-plugin-browser" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/revolt/event-loop" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
