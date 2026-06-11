@@ -25,7 +25,9 @@ RUN apt-get update && apt-get install -y \
     libgbm1 \
     libasound2 \
     libpango-1.0-0 \
-    libcairo2
+    libcairo2 \
+    fonts-liberation \
+    fonts-noto-color-emoji
 
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs
