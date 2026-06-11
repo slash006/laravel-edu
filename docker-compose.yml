@@ -9,6 +9,9 @@ services:
     working_dir: /var/www/project
     environment:
       - SERVER_HOST=0.0.0.0
+      - HOME=/tmp
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     command: php artisan serve --host=0.0.0.0 --port=8000
     ports:
       - "8028:8000"
@@ -23,8 +26,37 @@ services:
     user: "${UID:-1000}:${GID:-1000}"
     restart: unless-stopped
     working_dir: /var/www/project
+    environment:
+      - HOME=/tmp
     command: npm run dev
     ports:
       - "5173:5173"
     volumes:
       - ./:/var/www
+
+  pest:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel_pest
+    user: "${UID:-1000}:${GID:-1000}"
+    restart: unless-stopped
+    working_dir: /var/www/project
+    shm_size: '2gb'
+    environment:
+      - HOME=/tmp
+      - APP_URL=http://app:8000
+      - DB_CONNECTION=sqlite
+      - DISPLAY=${DISPLAY}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - app
+    command: tail -f /dev/null
+    volumes:
+      - ./:/var/www
+      - playwright_cache:/tmp/.cache/ms-playwright
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      
+volumes:
+  playwright_cache:

@@ -10,6 +10,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Idea extends Model
 {
+
+    protected $attributes = [
+        'state' => 'new'
+    ];
+
     //
     protected $fillable = [
         'description',

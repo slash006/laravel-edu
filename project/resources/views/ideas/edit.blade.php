@@ -15,7 +15,7 @@
         </div>
 
         <div class="mt-6 flex items-center justify-end gap-x-6">
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" data-test="update-idea-button" class="btn btn-primary">Update</button>
 
             <button
                 form="delete-idea-form"

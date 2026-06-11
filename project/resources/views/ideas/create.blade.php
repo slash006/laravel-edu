@@ -14,7 +14,7 @@
         </div>
 
         <div class="mt-6 flex items-center justify-end gap-x-6">
-            <button class="btn btn-primary" type="submit">Save</button>
+            <button class="btn btn-primary" data-test="create-idea-button" type="submit">Save</button>
         </div>
 
     </form>
@@ -23,3 +23,4 @@
 
 
 </x-layout>
+update-button

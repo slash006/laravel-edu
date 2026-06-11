@@ -124,6 +124,22 @@
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/_laravel_idea" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/barryvdh/laravel-ide-helper" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/barryvdh/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/brianium/paratest" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/doctrine/deprecations" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/fidry/cpu-core-counter" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/jean85/pretty-package-versions" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/pestphp/pest" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/pestphp/pest-plugin" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/pestphp/pest-plugin-arch" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/pestphp/pest-plugin-laravel" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/pestphp/pest-plugin-mutate" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/pestphp/pest-plugin-profanity" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/phpdocumentor/reflection-common" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/phpdocumentor/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/phpdocumentor/type-resolver" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/phpstan/phpdoc-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/ta-tikoma/phpunit-architecture-test" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/webmozart/assert" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -8,7 +8,7 @@
 
 
 @plugin "daisyui" {
-    themes: dracula, light;
+    themes: dracula, sunset --default;
 }
 
 
