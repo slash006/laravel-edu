@@ -33,3 +33,27 @@ services:
       - "5173:5173"
     volumes:
       - ./:/var/www
+
+  pest:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel_pest
+    user: "${UID:-1000}:${GID:-1000}"
+    restart: unless-stopped
+    working_dir: /var/www/project
+    environment:
+      - HOME=/tmp
+      - APP_URL=http://app:8000
+      - DB_CONNECTION=sqlite
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - app
+    command: tail -f /dev/null
+    volumes:
+      - ./:/var/www
+      - playwright_cache:/tmp/.cache/ms-playwright
+
+volumes:
+  playwright_cache:
