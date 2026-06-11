@@ -1,14 +1,17 @@
 <?php
 
+use App\Models\User;
+use Illuminate\Foundation\Vite;
+
 const TMP_IDEA = [
     'description' => 'tmp idea',
-    'state' => 'new'
+    'state' => 'new',
 ];
 
 it('shows all ideas', function () {
 
     // given I'm signed in
-    $this->actingAs($user = \App\Models\User::factory()->create());
+    $this->actingAs($user = User::factory()->create());
     // and I have at least one idea
     $user->ideas()->create(TMP_IDEA);
     // when I visit /ideas endpoint
@@ -17,7 +20,7 @@ it('shows all ideas', function () {
 
 it('shows a single idea', function () {
 
-    $this->actingAs($user = \App\Models\User::factory()->create());
+    $this->actingAs($user = User::factory()->create());
     $user->ideas()->create(TMP_IDEA);
     visit('/ideas/1')->assertSee(TMP_IDEA['description']);
 
@@ -25,17 +28,15 @@ it('shows a single idea', function () {
 
 it('shows an edit form to update an idea', function () {
 
-    app(\Illuminate\Foundation\Vite::class)->useHotFile(storage_path('vite.hot.does.not.exist'));
-    $this->actingAs($user = \App\Models\User::factory()->create());
+    app(Vite::class)->useHotFile(storage_path('vite.hot.does.not.exist'));
+    $this->actingAs($user = User::factory()->create());
     $user->ideas()->create(TMP_IDEA);
     visit('/ideas/1')->assertSee(TMP_IDEA['description']);
 
     visit('/ideas/1/edit')
         ->fill('description', 'new description')
-        ->press('@update-idea-button')
-    ;
+        ->press('@update-idea-button');
 
-    visit('/ideas/1')->assertSee("new description");
-
+    visit('/ideas/1')->assertSee('new description');
 
 });

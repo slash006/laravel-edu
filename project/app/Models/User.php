@@ -20,6 +20,7 @@ class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory;
+
     use Notifiable;
 
     /**
@@ -39,7 +40,7 @@ class User extends Authenticatable
     {
 
         return $this->id === 1;
-//        return $this->role === "admin";
+        //        return $this->role === "admin";
     }
 
     public function ideas(): HasMany

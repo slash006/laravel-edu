@@ -3,13 +3,12 @@
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\SessionsController;
 use App\Http\Controllers\IdeaController;
-use Illuminate\Support\Facades\Route;
 use App\Models\Idea;
-
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    return "Placeholder for home page";
+    return 'Placeholder for home page';
 });
 
 Route::middleware('auth')->group(function () {
@@ -22,8 +21,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/ideas/{idea}', [IdeaController::class, 'update']);
     Route::delete('/ideas/{idea}', [IdeaController::class, 'destroy']);
 });
-
-
 
 Route::get('/register', [RegisteredUserController::class, 'create'])->middleware('guest');
 Route::post('/register', [RegisteredUserController::class, 'store'])->middleware('guest');
@@ -42,16 +39,14 @@ Route::post('/login', [SessionsController::class, 'store'])->middleware('guest')
     return "Private admin area";
 });*/
 
-
-//Route::post('/logout', function () {
+// Route::post('/logout', function () {
 //
 //    Auth::logout();
-//});
+// });
 //
 
-
 // index
-//Route::get('/ideas', function () {
+// Route::get('/ideas', function () {
 //
 //    //    $ideas = session()->get('ideas', []);
 //    //    $ideas = DB::table('ideas')->get();
@@ -65,53 +60,53 @@ Route::post('/login', [SessionsController::class, 'store'])->middleware('guest')
 //    return view('ideas.index', [ // ideas/index
 //        'ideas' => $ideas
 //    ]);
-//});
+// });
 
 // create
-//Route::get('/ideas/create', function () {
+// Route::get('/ideas/create', function () {
 //
 //    return view('ideas.create');
 //
-//});
+// });
 
-//// show
-//Route::get('/ideas/{idea}', function (Idea $idea) {
+// // show
+// Route::get('/ideas/{idea}', function (Idea $idea) {
 //
 //    return view('ideas.show', [
 //        'idea' => $idea
 //    ]);
 //
-//});
+// });
 
 // edit
-//Route::get('/ideas/{idea}/edit', function (Idea $idea) {
+// Route::get('/ideas/{idea}/edit', function (Idea $idea) {
 //
 //    return view('ideas.edit', [
 //        'idea' => $idea
 //    ]);
 //
-//});
+// });
 
-//// update
-//Route::patch('/ideas/{idea}', function (Idea $idea) {
+// // update
+// Route::patch('/ideas/{idea}', function (Idea $idea) {
 //
 //    $idea->update([
 //        'description' => request('description')
 //    ]);
 //
 //    return redirect('/ideas/' . $idea->id);
-//});
+// });
 
 // delete
-//Route::delete('/ideas/{idea}', function (Idea $idea) {
+// Route::delete('/ideas/{idea}', function (Idea $idea) {
 //
 //    $idea->delete();
 //    return redirect('/ideas');
 //
-//});
+// });
 
 // show
-//Route::get('/ideas/{id}', function ($id) {
+// Route::get('/ideas/{id}', function ($id) {
 //
 //    $idea = Idea::findOrFail($id);
 //
@@ -123,9 +118,9 @@ Route::post('/login', [SessionsController::class, 'store'])->middleware('guest')
 //        'idea' => $idea
 //    ]);
 //
-//});
+// });
 
-//Route::post('/ideas', function () {
+// Route::post('/ideas', function () {
 //
 //    $idea = request()->idea;
 //
@@ -144,7 +139,7 @@ Route::post('/login', [SessionsController::class, 'store'])->middleware('guest')
 //    //    session()->push('ideas', $idea);
 //    return redirect('/ideas');
 //    //    dd(request("idea"));
-//});
+// });
 
 Route::get('/delete-ideas', function () {
 
@@ -168,6 +163,6 @@ Route::view('contact', 'contact', [
     'tasks' => [
         'sample',
         'task',
-        'here'
-    ]
+        'here',
+    ],
 ]);

@@ -10,9 +10,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Idea extends Model
 {
-
     protected $attributes = [
-        'state' => 'new'
+        'state' => 'new',
     ];
 
     //
@@ -21,6 +20,7 @@ class Idea extends Model
         'state',
         'user_id',
     ];
+
     protected $guarded = [];
 
     public function user(): BelongsTo

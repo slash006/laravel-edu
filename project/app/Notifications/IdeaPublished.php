@@ -36,9 +36,9 @@ class IdeaPublished extends Notification implements ShouldQueue
     public function toMail(object $notifiable): MailMessage
     {
 
-        $id = url('/ideas/' . $this->idea->id);
+        $id = url('/ideas/'.$this->idea->id);
 
-        return (new MailMessage())
+        return (new MailMessage)
             ->greeting('Hello!')
             ->line('You published a new idea')
             ->line($this->idea->description)

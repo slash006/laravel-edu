@@ -21,16 +21,15 @@ class RegisteredUserController extends Controller
             [
                 'name' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'password' => ['required', 'string', 'min:8']
+                'password' => ['required', 'string', 'min:8'],
             ]
         );
 
         $user = User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
-            'password' => $validated['password']
+            'password' => $validated['password'],
         ]);
-
 
         \Auth::login($user);
 

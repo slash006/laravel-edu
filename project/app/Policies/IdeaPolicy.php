@@ -25,5 +25,4 @@ class IdeaPolicy
     {
         return $user->isAdmin();
     }
-
 }

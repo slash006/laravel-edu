@@ -24,7 +24,7 @@ class IdeaController extends Controller
         $ideas = \Auth::user()->ideas;
 
         return view('ideas.index', [ // ideas/index
-            'ideas' => $ideas
+            'ideas' => $ideas,
         ]);
     }
 
@@ -51,7 +51,7 @@ class IdeaController extends Controller
 
         $idea = \Auth::user()->ideas()->create([
             'description' => $request->description,
-            'state' => 'pending'
+            'state' => 'pending',
         ]);
 
         // notify the user
@@ -81,7 +81,7 @@ class IdeaController extends Controller
         }*/
 
         return view('ideas.show', [
-            'idea' => $idea
+            'idea' => $idea,
         ]);
     }
 
@@ -91,7 +91,7 @@ class IdeaController extends Controller
     public function edit(Idea $idea)
     {
         return view('ideas.edit', [
-            'idea' => $idea
+            'idea' => $idea,
         ]);
     }
 
@@ -111,7 +111,7 @@ class IdeaController extends Controller
             'description' => $request->description,
         ]);
 
-        return redirect('/ideas/' . $idea->id);
+        return redirect('/ideas/'.$idea->id);
     }
 
     /**
@@ -121,8 +121,8 @@ class IdeaController extends Controller
     {
         \Gate::authorize('update', $idea);
 
-
         $idea->delete();
+
         return redirect('/ideas');
     }
 }

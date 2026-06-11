@@ -23,11 +23,12 @@ class SessionsController extends Controller
 
         $validated = $request->validate([
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required',
         ]);
 
         if (\Auth::attempt($validated)) {
             $request->session()->regenerate();
+
             return redirect('/ideas');
         }
 
@@ -45,6 +46,7 @@ class SessionsController extends Controller
     public function destroy()
     {
         \Auth::logout();
+
         return redirect('/ideas');
     }
 }
