@@ -162,6 +162,27 @@
       <path value="$PROJECT_DIR$/project/vendor/doctrine/deprecations" />
       <path value="$PROJECT_DIR$/project/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/project/vendor/brianium/paratest" />
+      <path value="$PROJECT_DIR$/project/vendor/amphp/cache" />
+      <path value="$PROJECT_DIR$/project/vendor/amphp/byte-stream" />
+      <path value="$PROJECT_DIR$/project/vendor/amphp/websocket-client" />
+      <path value="$PROJECT_DIR$/project/vendor/amphp/socket" />
+      <path value="$PROJECT_DIR$/project/vendor/amphp/serialization" />
+      <path value="$PROJECT_DIR$/project/vendor/amphp/http-client" />
+      <path value="$PROJECT_DIR$/project/vendor/amphp/http" />
+      <path value="$PROJECT_DIR$/project/vendor/amphp/hpack" />
+      <path value="$PROJECT_DIR$/project/vendor/amphp/process" />
+      <path value="$PROJECT_DIR$/project/vendor/amphp/amp" />
+      <path value="$PROJECT_DIR$/project/vendor/amphp/dns" />
+      <path value="$PROJECT_DIR$/project/vendor/amphp/sync" />
+      <path value="$PROJECT_DIR$/project/vendor/amphp/pipeline" />
+      <path value="$PROJECT_DIR$/project/vendor/kelunik/certificate" />
+      <path value="$PROJECT_DIR$/project/vendor/revolt/event-loop" />
+      <path value="$PROJECT_DIR$/project/vendor/daverandom/libdns" />
+      <path value="$PROJECT_DIR$/project/vendor/pestphp/pest-plugin-browser" />
+      <path value="$PROJECT_DIR$/project/vendor/league/uri-components" />
+      <path value="$PROJECT_DIR$/project/vendor/amphp/http-server" />
+      <path value="$PROJECT_DIR$/project/vendor/amphp/websocket" />
+      <path value="$PROJECT_DIR$/project/vendor/amphp/parser" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.3" />
