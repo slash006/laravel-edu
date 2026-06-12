@@ -1,5 +1,4 @@
 <x-layout>
-
-    <p>home page</p>
+    idea details here
 
 </x-layout>
