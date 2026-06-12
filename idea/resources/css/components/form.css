@@ -22,11 +22,6 @@ label {
     box-shadow: 0 0 0 3px var(--color-primary);
 }
 
-@media (min-width: var(--breakpoint-md)) {
-    .input {
-        font-size: var(--text-sm);
-    }
-}
 
 .textarea {
     border-radius: var(--radius-md);
@@ -49,11 +44,6 @@ label {
         0 0 0 calc(var(--spacing) * 1) var(--color-primary);
 }
 
-@media (min-width: var(--breakpoint-md)) {
-    .textarea {
-        font-size: var(--text-sm);
-    }
-}
 
 .label {
     display: block;
