@@ -1,5 +1,5 @@
 <x-layout>
 
-    hiiii!
+    <p>home page</p>
 
 </x-layout>

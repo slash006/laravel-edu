@@ -15,6 +15,13 @@ button {
     display: inline-block;
 }
 
+.color-secondary {
+
+    background: var(--color-secondary);
+
+}
+
+
 .btn.btn-outline {
     background: transparent;
     border: 1px solid var(--color-border);

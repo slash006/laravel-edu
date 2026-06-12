@@ -5,7 +5,7 @@
 </head>
 <body class="bg-background text-foreground">
     <x-layout.nav />
-    <main>
+    <main class="max-w-7xl mx-auto px-6">
         {{ $slot }}
     </main>
 </body>

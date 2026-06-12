@@ -7,8 +7,20 @@
             </a>
         </div>
 
-        <div>
-            right side
+        <div class="flex gap-x-5">
+
+            @auth
+                <form action="/logout" method="POST">
+                    @csrf
+                    <button class="btn">Logout</button>
+                </form>
+
+            @endauth
+
+            @guest
+                <a href="/login" class="btn color-secondary text-center">Sign in</a>
+                <a href="/register" class="btn text-center">Register</a>
+            @endguest
         </div>
 
     </div>
