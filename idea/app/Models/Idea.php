@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 
 class Idea extends Model
 {
@@ -22,6 +24,21 @@ class Idea extends Model
     protected $attributes = [
         "status" => IdeaStatus::PENDING->value
     ];
+
+
+    public static function statusCount(User $user): Collection
+    {
+
+        // select status, count(*) from ideas group by status;
+//        $statusCounts = Idea::query()->selectRaw('status, count(*) AS count')->groupBy('status')->pluck('count', 'status');
+        $counts = $user->ideas()
+            ->selectRaw('status, count(*) AS count')
+            ->groupBy('status')->pluck('count', 'status');
+
+        return collect(IdeaStatus::cases())->mapWithKeys(function ($item) use ($counts) {
+            return [$item->value => $counts->get($item->value, 0)];
+        })->put('all', $user->ideas()->count());
+    }
 
     public function user(): BelongsTo
     {
