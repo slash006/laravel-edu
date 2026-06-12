@@ -1,5 +1,7 @@
+@php use App\IdeaStatus; @endphp
 <x-layout>
-{{--    <div class="text-muted-foreground">--}}
+    {{--    <div class="text-muted-foreground">--}}
+
     <div>
 
         <header class="py-8 md:py-12">
@@ -7,12 +9,33 @@
             <p class="text-muted-foreground text-sm mt-2">idea details here</p>
         </header>
 
+        <div>
+
+
+            <a href="/ideas" class="btn {{!request('status') ? '' : 'btn-outline'}}">
+                All
+                <span class="text-xs pt-3 ml-2">{{$statusCounts['all']}}</span>
+
+            </a>
+            @foreach(IdeaStatus::cases() as $status)
+                <a href="/ideas?status={{$status}}"
+                   class="btn {{request('status') === $status->value ? '' : 'btn-outline'}} ">
+                    {{$status->label()}}
+                    <span class="text-xs pt-3 ml-2">{{$statusCounts[$status->value]}}</span>
+                </a>
+            @endforeach
+
+            {{--       <a href="/ideas?status=in_progress" class="btn btn-outline ">In progress</a>
+                   <a href="/ideas?status=completed" class="btn btn-outline ">Completed</a>
+                   <a href="/ideas" class="btn btn-outline ">All</a>--}}
+        </div>
+
         <div class="mt-10">
 
             <div class="grid md:grid-cols-2 gap-6">
                 @forelse($ideas as $idea)
                     <x-card href="/ideas/{{$idea->id}}">
-                        <h3 class="text-foreground text-lg">{{$idea->title}}</h3>
+                        <h3 class="text-foreground text-lg">{{$idea->title}}</h3>ogress"
                         <div class="mt-4">
                             <x-idea.status-label status="{{$idea->status}}">
                                 {{$idea->status->label()}}
