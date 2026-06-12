@@ -1,12 +1,20 @@
 <?php
 
+use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+
+Route::redirect('/', '/ideas');
+
+Route::get('/ideas', [IdeaController::class, 'index'])->name('idea.index')->middleware('auth');
+Route::get('/ideas/{idea}', [IdeaController::class, 'show'])->name('idea.show');
+
+
 
 Route::get('/register', [RegisteredUserController::class, 'create'])->name('register')->middleware('guest');
 Route::post('/register', [RegisteredUserController::class, 'store'])->middleware('guest');
