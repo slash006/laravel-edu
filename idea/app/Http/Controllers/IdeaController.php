@@ -21,6 +21,7 @@ class IdeaController extends Controller
                 return $query->where('status', $search);
             })
 //            ->where('status', request('status', 'completed'))
+                ->orderByDesc('created_at')
             ->get();
 
 
@@ -47,7 +48,10 @@ class IdeaController extends Controller
      */
     public function store(StoreIdeaRequest $request)
     {
-        //
+//        dd($request->all());
+
+        Auth::user()->ideas()->create($request->validated());
+        return to_route('idea.index')->with('success', 'Idea has been created.');
     }
 
     /**
@@ -81,7 +85,7 @@ class IdeaController extends Controller
      */
     public function destroy(Idea $idea)
     {
-//        $idea->delete();
+        $idea->delete();
         return to_route('idea.index');
     }
 }
