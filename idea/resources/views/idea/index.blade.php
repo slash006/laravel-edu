@@ -65,9 +65,7 @@
         </div>
 
         <!-- modal here -->
-
-
-        <x-modal>
+        <x-modal name="create-idea" title="Create a new idea">
             <p> modal!!!</p>
         </x-modal>
 
