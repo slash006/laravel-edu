@@ -67,27 +67,9 @@
         <!-- modal here -->
 
 
-        <div
-            x-data="{ show: false, name: 'create-idea' }"
-            x-show="show"
-            @open-modal.window="if($event.detail == name) show = true;"
-            @keydown.escape.window="show = false"
-            class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs"
-            x-transition:enter="duration-150"
-            x-transition:enter-start="opacity-0 -translate-y-4 -translate-x-4"
-            x-transition:enter-end="opacity-100"
-
-            x-transition:leave="duration-150"
-            x-transition:leave-start="opacity-100"
-            x-transition:leave-end="opacity-0 -translate-y-4 -translate-x-4"
-            style="display: none"
-            role="dialog"
-
-        >
-            <x-card @click.away="show = false">
-                <p> modal</p>
-            </x-card>
-        </div>
+        <x-modal>
+            <p> modal!!!</p>
+        </x-modal>
 
 
     </div>
