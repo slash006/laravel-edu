@@ -17,6 +17,10 @@ it('creates a new idea', function () {
         ->fill('title', 'TEST_TITLE')
         ->click('@button-status-completed')
         ->fill('description', 'TEST_DESCRIPTION')
+        ->fill('@new-link', 'http://test.com')
+        ->click('@submit-new-link-button')
+        ->fill('@new-link', 'http://example.com')
+        ->click('@submit-new-link-button')
         ->click('Create')
         ->assertPathIs('/ideas');
 
@@ -25,7 +29,8 @@ it('creates a new idea', function () {
     expect(Idea::count())->toBe(1)
         ->and(Idea::all()[0]->title)->toBe("TEST_TITLE")
         ->and(Idea::first()->description)->toBe("TEST_DESCRIPTION")
-        ->and(Idea::first()->status->value)->toBe("completed");
+        ->and(Idea::first()->status->value)->toBe("completed")
+        ->and(Idea::first()->links->count())->toBe(2);
 
 //    dd(Idea::all()[0]);
 
