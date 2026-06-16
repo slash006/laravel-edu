@@ -9,7 +9,8 @@ it('creates a new idea', function () {
     app(\Illuminate\Foundation\Vite::class)->useHotFile(storage_path('vite.hot.does.not.exist'));
 
 
-    $user = User::factory()->create(['password' => 'gryf123']);
+//    $user = User::factory()->create(['password' => 'gryf123']);
+    $user = User::factory()->create();
 
     $this->actingAs($user);
     visit('/ideas')
@@ -20,8 +21,10 @@ it('creates a new idea', function () {
         ->fill('@new-link', 'http://test.com')
         ->click('@submit-new-link-button')
         ->fill('@new-link', 'http://example.com')
+
         ->click('@submit-new-link-button')
-        ->click('Create')
+        ->click('@submit-new-idea-form')
+//        ->debug()
         ->assertPathIs('/ideas');
 
 

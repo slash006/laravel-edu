@@ -83,10 +83,13 @@
                     newLink: '',
                     links: [],
                     newStep: '',
-                    steps: []
+                    steps: [],
+                    hasImage: false
                     }"
                 method="POST"
-                enctype="multipart/form-data"
+{{--                enctype="multipart/form-data"--}}
+                x-bind:enctype="hasImage ? 'multipart/form-data' : false"
+
                 action="{{route('idea.store')}}">
             @csrf
 
@@ -130,7 +133,11 @@
 
                     <div class="space-y-2">
                         <label for="image" class="label">Featured Image</label>
-                        <input type="file" name="image" accept="image/*" />
+                        <input
+                            @change="hasImage = $event.target.files.length > 0"
+
+
+                            type="file" name="image" accept="image/*" />
                         <x-form.error name="image" />
 
                     </div>
@@ -233,7 +240,7 @@
                         type="button"
                         @click="$dispatch('close-modal')"
                     >Cancel</button>
-                    <button type="submit" class="btn">Create</button>
+                    <button data-test="submit-new-idea-form" type="submit" class="btn">Create</button>
                 </div>
 
             </form>
