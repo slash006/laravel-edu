@@ -11,6 +11,10 @@ class Step extends Model
     /** @use HasFactory<\Database\Factories\StepFactory> */
     use HasFactory;
 
+    protected $fillable = [
+        'completed',
+    ];
+
     protected $attributes = [
         'completed' => false
     ];

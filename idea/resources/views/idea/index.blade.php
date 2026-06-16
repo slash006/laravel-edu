@@ -45,7 +45,7 @@
             <div class="grid md:grid-cols-2 gap-6">
                 @forelse($ideas as $idea)
                     <x-card href="/ideas/{{$idea->id}}">
-                        <h3 class="text-foreground text-lg">{{$idea->title}}</h3>ogress"
+                        <h3 class="text-foreground text-lg">{{$idea->title}}</h3>
                         <div class="mt-4">
                             <x-idea.status-label status="{{$idea->status}}">
                                 {{$idea->status->label()}}
@@ -72,7 +72,9 @@
                 x-data="{
                     status: 'pending',
                     newLink: '',
-                    links: []
+                    links: [],
+                    newStep: '',
+                    steps: []
                     }"
                 method="POST"
                 action="{{route('idea.store')}}">
@@ -115,6 +117,52 @@
                         type="textarea"
                         placeholder="Describe your idea"
                     />
+
+                    <div>
+                        <fieldset class="space-y-3">
+                            <legend class="label">Actionsble steps</legend>
+
+                            <template x-for="(step, index) in steps" :key="step">
+                                <div class="flex gap-x-2 items-center">
+                                    <input  name="steps[]" x-model="step" class="input">
+
+                                    <button
+                                        type="button"
+                                        aria-label="Remove step"
+                                        @click="steps.splice(index, 1); newStep = ''"
+                                        class="form-muted-icon"
+                                    >
+                                        <x-icons.close></x-icons.close>
+                                    </button>
+
+                                </div>
+                            </template>
+
+
+                            <div class="flex gap-x-2 items-center">
+                                <input
+                                    x-model="newStep"
+                                    class="input flex-1"
+                                    id="new-step"
+                                    data-test="new-step"
+                                    placeholder="What needs to be done"
+                                    spellcheck="false"
+                                />
+                                <button
+                                    type="button"
+                                    data-test="submit-new-step-button"
+                                    class="form-muted-icon"
+                                    :disabled="newStep.trim().length === 0"
+                                    aria-label="Add a new step"
+                                    @click="steps.push(newStep.trim()); newStep = ''">
+                                    <x-icons.close class="rotate-45"></x-icons.close>
+                                </button>
+                            </div>
+
+                            <pre x-text="JSON.stringify(steps)"></pre>
+
+                        </fieldset>
+                    </div>
 
 
                     <div>
