@@ -11,7 +11,9 @@
             <x-card
                 x-data
                 @click="$dispatch('open-modal', 'create-idea')"
-                class="mt-10 cursor-pointer h-32 w-full text-left" is="button">
+                class="mt-10 cursor-pointer h-32 w-full text-left" is="button"
+                data-test="create-idea-button"
+            >
                 <p>What's the idea?</p>
             </x-card>
 
@@ -87,6 +89,7 @@
                                     type="button"
                                     @click="status = '{{$status->value}}'"
                                     class="btn flex-1 h-10"
+                                    data-test="button-status-{{$status->value}}"
                                     :class="status === @js($status->value) ? 'btn-primary' : 'btn-outline'"
                                 >{{$status->label()}}</button>
                             @endforeach
