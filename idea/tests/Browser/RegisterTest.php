@@ -11,7 +11,7 @@ it('can register', function () {
         ->fill('email', 'pomorski@gryf.exe')
         ->fill('password', 'password')
         ->click('Create Account') //->debug()
-        ->assertPathIs('/');
+        ->assertPathIs('/ideas');
 
     $this->assertAuthenticated();
 

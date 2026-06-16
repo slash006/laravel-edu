@@ -13,7 +13,7 @@ it('logs in a user', function () {
         ->fill('email', $user->email)
         ->fill('password', 'gryf123')
         ->click('@login-button') //->debug()
-        ->assertPathIs('/');
+        ->assertPathIs('/ideas');
 
     $this->assertAuthenticated();
 
@@ -29,7 +29,7 @@ it('logs out a user', function () {
     $this->assertAuthenticated();
 
     visit('/')->click('Logout')
-        ->assertPathIs('/');
+        ->assertPathIs('/login');
 
     $this->assertGuest();
 });
