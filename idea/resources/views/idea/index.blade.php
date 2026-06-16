@@ -175,7 +175,6 @@
                                     <x-icons.close class="rotate-45"></x-icons.close>
                                 </button>
                             </div>
-{{--                            <pre x-text="JSON.stringify(steps)"></pre>--}}
 
                         </fieldset>
                     </div>
@@ -223,7 +222,6 @@
                                     <x-icons.close class="rotate-45"></x-icons.close>
                                 </button>
                             </div>
-{{--                            <pre x-text="JSON.stringify(links)"></pre>--}}
 
                         </fieldset>
                     </div>
