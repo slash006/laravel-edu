@@ -51,15 +51,11 @@ class IdeaController extends Controller
     {
 //        dd($request->all());
 /*        dd($request->safe()->only('title'));
-        dd($request->safe()->except('steps'));*/
-
+          dd($request->safe()->except('steps'));*/
 //        dd($request->safe()->all());
-
-
 //        (new CreateIdea())->handle($request->safe()->all(), Auth::user());
 
-
-        $action->handle($request->safe()->all(), Auth::user());
+        $action->handle($request->safe()->all());
 
 
         return to_route('idea.index')->with('success', 'Idea has been created.');

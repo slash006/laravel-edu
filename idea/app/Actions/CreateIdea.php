@@ -3,17 +3,18 @@
 namespace App\Actions;
 
 use App\Models\User;
+use Illuminate\Container\Attributes\CurrentUser;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class CreateIdea {
 
-    public function handle(array $attributes, ?User $user = null) {
+    public function __construct(#[CurrentUser] protected User $user)
+    {
 
+    }
 
-        //        dd($request->all());
-        /*        dd($request->safe()->only('title'));
-                dd($request->safe()->except('steps'));*/
+    public function handle(array $attributes) {
 
 
         $user = $user ?? Auth::user();
@@ -29,11 +30,19 @@ class CreateIdea {
 
 
         try {
-            Db::transaction(function () use ($data, $user) {
-                $idea = $user->ideas()->create($data);
+            Db::transaction(function () use ($data, $attributes) {
+                $idea = $this->user->ideas()->create($data);
+
+                $steps = [];
+
+                /*foreach ($attributes['steps'] as $step) {
+                    $steps[]['description'] = $step;
+                }*/
+
                 $steps = collect($attributes["steps"] ?? [])->map(function ($step) {
                     return ['description' => $step];
                 });
+
                 $idea->steps()->createMany($steps);
             });
             } catch (\Throwable $e) {
