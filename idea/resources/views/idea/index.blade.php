@@ -45,6 +45,15 @@
             <div class="grid md:grid-cols-2 gap-6">
                 @forelse($ideas as $idea)
                     <x-card href="/ideas/{{$idea->id}}">
+
+                        @if($idea->image_path)
+                            <div class="mb-4 -mx-4 -mt-4 rounded-t-lg overflow-hidden">
+                                <img src="{{ asset('storage/'. $idea->image_path)  }}" alt="image path" class="w-full h-48 object-cover" />
+
+                            </div>
+                        @endif
+
+
                         <h3 class="text-foreground text-lg">{{$idea->title}}</h3>
                         <div class="mt-4">
                             <x-idea.status-label status="{{$idea->status}}">
@@ -74,9 +83,13 @@
                     newLink: '',
                     links: [],
                     newStep: '',
-                    steps: []
+                    steps: [],
+                    hasImage: false
                     }"
                 method="POST"
+{{--                enctype="multipart/form-data"--}}
+                x-bind:enctype="hasImage ? 'multipart/form-data' : false"
+
                 action="{{route('idea.store')}}">
             @csrf
 
@@ -118,6 +131,17 @@
                         placeholder="Describe your idea"
                     />
 
+                    <div class="space-y-2">
+                        <label for="image" class="label">Featured Image</label>
+                        <input
+                            @change="hasImage = $event.target.files.length > 0"
+
+
+                            type="file" name="image" accept="image/*" />
+                        <x-form.error name="image" />
+
+                    </div>
+
                     <div>
                         <fieldset class="space-y-3">
                             <legend class="label">Actionsble steps</legend>
@@ -158,8 +182,6 @@
                                     <x-icons.close class="rotate-45"></x-icons.close>
                                 </button>
                             </div>
-
-                            <pre x-text="JSON.stringify(steps)"></pre>
 
                         </fieldset>
                     </div>
@@ -208,8 +230,6 @@
                                 </button>
                             </div>
 
-                            <pre x-text="JSON.stringify(links)"></pre>
-
                         </fieldset>
                     </div>
 
@@ -220,7 +240,7 @@
                         type="button"
                         @click="$dispatch('close-modal')"
                     >Cancel</button>
-                    <button type="submit" class="btn">Create</button>
+                    <button data-test="submit-new-idea-form" type="submit" class="btn">Create</button>
                 </div>
 
             </form>
