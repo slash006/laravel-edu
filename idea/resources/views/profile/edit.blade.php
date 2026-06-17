@@ -8,7 +8,7 @@
             <x-form.field :value="$user->email" name="email" label="E-mail" type="email"></x-form.field>
             <x-form.field name="password" label="Password" type="password"></x-form.field>
 
-            <button type="submit" class="btn mt-3 h-10 w-full">Update Account</button>
+            <button data-test="update-account-button" type="submit" class="btn mt-3 h-10 w-full">Update Account</button>
 
         </form>
     </x-form>

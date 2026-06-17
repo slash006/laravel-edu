@@ -25,7 +25,7 @@ Route::delete('/ideas/{idea}/image', [IdeaImageController::class, 'destroy'])->n
 Route::patch('/steps/{step}', [StepController::class, 'update'])->name('step.update')->middleware('auth');
 
 Route::get('/register', [RegisteredUserController::class, 'create'])->name('register')->middleware('guest');
-Route::post('/register', [RegisteredUserController::class, 'store'])->middleware('gueeditst');
+Route::post('/register', [RegisteredUserController::class, 'store'])->middleware('guest');
 Route::get('/login', [SessionsController::class, 'create'])->name('login')->middleware('guest');
 Route::post('/login', [SessionsController::class, 'store'])->middleware('guest');
 
