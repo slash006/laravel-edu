@@ -8,8 +8,8 @@ it('can register', function () {
 
     visit('/register')
         ->fill('name', 'Hi there')
-        ->fill('email', 'pomorski@gryf.exe')
-        ->fill('password', 'password')
+        ->fill('email', 'pomorski@gryf.com')
+        ->fill('password', 'asdF343xxxkk86!')
         ->click('Create Account') //->debug()
         ->assertPathIs('/ideas');
 
