@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Actions\CreateIdea;
-use App\Http\Requests\StoreIdeaRequest;
+use App\Actions\UpdateIdea;
+use App\Http\Requests\IdeaRequest;
 use App\Http\Requests\UpdateIdeaRequest;
 use App\IdeaStatus;
 use App\Models\Idea;
@@ -48,7 +49,7 @@ class IdeaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreIdeaRequest $request, CreateIdea $action)
+    public function store(IdeaRequest $request, CreateIdea $action)
     {
 //        dd($request->all());
 /*        dd($request->safe()->only('title'));
@@ -83,9 +84,11 @@ class IdeaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateIdeaRequest $request, Idea $idea)
+    public function update(IdeaRequest $request, Idea $idea, UpdateIdea $action)
     {
-        Gate::authorize('workWith', $idea);
+
+        $action->handle($request->safe()->all(), $idea);
+        return back()->with('success', 'Idea has been updated.');
 
     }
 

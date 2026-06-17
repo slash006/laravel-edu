@@ -10,7 +10,10 @@
 
             <div class="space-x-3 flex items-center">
 
-                <button class="btn btn-outline">
+                <button
+                    x-data
+                    @click="$dispatch('open-modal', 'edit-idea')"
+                    data-test="edit-idea-button" class="btn btn-outline">
                     <x-icons.external />
                     Edit idea</button>
 
@@ -42,11 +45,13 @@
                 <div class="text-muted-foreground text-sm">{{ $idea->created_at->diffForHumans()  }}</div>
             </div>
 
-            <x-card class="mt-6">
-                <div class="text-foreground prose prose-invert max-w-none cursor-pointer">
-                    {{$idea->description}}
-                </div>
-            </x-card>
+            @if($idea->description)
+                <x-card class="mt-6">
+                    <div class="text-foreground prose prose-invert max-w-none cursor-pointer">
+                        {{$idea->description}}
+                    </div>
+                </x-card>
+            @endif
 
 
             @if($idea->steps->count())
@@ -92,6 +97,8 @@
             @endif
 
         </div>
+
+        <x-idea.modal :idea="$idea" />
 
     </div>
 

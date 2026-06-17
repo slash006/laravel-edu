@@ -7,7 +7,7 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class StoreIdeaRequest extends FormRequest
+class IdeaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -30,7 +30,8 @@ class StoreIdeaRequest extends FormRequest
             "status" => ["required", Rule::enum(IdeaStatus::class)],
             "links" => "nullable|array",
             "steps" => "nullable|array",
-            "steps.*" => "string",
+/*            "steps.*.description" => "string",
+            "steps.*.completed" => "boolean:",*/
             "image" => "nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120",
 //            "links.*" => "url",
         ];

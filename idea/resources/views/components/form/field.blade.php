@@ -1,6 +1,7 @@
 @props([
     'name',
     'type' => 'text',
+    'value' => null,
     'label' => false]
     )
 
@@ -17,14 +18,14 @@
             name="{{$name}}"
             id="{{$name}}"
 
-            class="input textarea" {{$attributes}}>{{ old($name) }}</textarea>
+            class="input textarea" {{$attributes}}>{{ old($name, $value) }}</textarea>
     @else
 
         <input
             type="{{$type}}"
             name="{{$name}}"
             id="{{$name}}"
-            value="{{ old($name)  }}"
+            value="{{ old($name, $value)  }}"
             class="input" {{$attributes}} />
 
     @endif
