@@ -192,11 +192,6 @@
   <component name="PhpStanOptionsConfiguration">
     <option name="transferred" value="true" />
   </component>
-  <component name="PhpUnit">
-    <phpunit_settings>
-      <PhpUnitSettings configuration_file_path="$PROJECT_DIR$/project/phpunit.xml" custom_loader_path="$PROJECT_DIR$/project/vendor/autoload.php" use_configuration_file="true" />
-    </phpunit_settings>
-  </component>
   <component name="Psalm">
     <Psalm_settings>
       <psalm_fixer_by_interpreter asDefaultInterpreter="true" interpreter_id="90b98af3-6f78-4898-92b4-ceb10e407120" timeout="60000" />
